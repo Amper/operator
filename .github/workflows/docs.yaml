@@ -48,6 +48,6 @@ jobs:
         name: Commit and push changes
         run: |
           git add docs/operator/CHANGELOG.MD
-          git commit -m "Automatic update operator CHANGELOG"
+          git commit -S -m "Automatic update operator CHANGELOG"
           git push
         working-directory: "__vm-docs-repo"
