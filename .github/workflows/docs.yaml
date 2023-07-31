@@ -77,7 +77,7 @@ jobs:
         working-directory: "__vm-operator-repo"
       -
         name: Commit and push changes
-        run: |
+        run: |          
           export GIT_BRANCH_NAME="operator-docs-update-$(date +%s)"
           git checkout -b "${GIT_BRANCH_NAME}"
           git add docs/operator/CHANGELOG.md
@@ -85,4 +85,9 @@ jobs:
           git add docs/operator/api.md
           git commit -S -m "Automatic update operator CHANGELOG"
           git push origin $GIT_BRANCH_NAME
+          gh pr create
+          gh pr merge ${GIT_BRANCH_NAME} --auto
         working-directory: "__vm-docs-repo"
+        env:
+          GITHUB_TOKEN: ${{ secrets.VM_BOT_GH_TOKEN }}
+
