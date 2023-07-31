@@ -78,9 +78,11 @@ jobs:
       -
         name: Commit and push changes
         run: |
+          export GIT_BRANCH_NAME="operator-docs-update-$(date +%s)"
+          git checkout -b "${GIT_BRANCH_NAME}"
           git add docs/operator/CHANGELOG.md
           git add docs/operator/vars.md
           git add docs/operator/api.md
           git commit -S -m "Automatic update operator CHANGELOG"
-          git push
+          git push origin $GIT_BRANCH_NAME
         working-directory: "__vm-docs-repo"
