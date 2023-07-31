@@ -86,7 +86,7 @@ jobs:
           git commit -S -m "Automatic update operator CHANGELOG"
           git push origin $GIT_BRANCH_NAME
           gh pr create -f
-          gh pr merge ${GIT_BRANCH_NAME} --auto
+          gh pr merge ${GIT_BRANCH_NAME} --auto --squash
         working-directory: "__vm-docs-repo"
         env:
           GITHUB_TOKEN: ${{ secrets.VM_BOT_GH_TOKEN }}
