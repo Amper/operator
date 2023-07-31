@@ -84,7 +84,7 @@ jobs:
           git add docs/operator/CHANGELOG.md
           git add docs/operator/vars.md
           git add docs/operator/api.md
-          git commit -S -m "Automatic update operator docs from Amper/operator@${VM_GIT_COMMIT_SHA}"
+          git commit -S -m "Automatic update operator docs from ${GITHUB_REPOSITORY}@${VM_GIT_COMMIT_SHA}"
           git push origin ${VM_GIT_BRANCH_NAME}
           gh pr create -f
           gh pr merge ${VM_GIT_BRANCH_NAME} --auto --squash
