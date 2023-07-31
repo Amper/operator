@@ -75,7 +75,7 @@ jobs:
           cat ./vars.MD > ../__vm-docs-repo/docs/operator/vars.md
           cat ./doc_api.MD > ../__vm-docs-repo/docs/operator/api.md
         working-directory: "__vm-operator-repo"
-      -
+
       - name: Commit and push changes
         run: |
           export VM_GIT_BRANCH_NAME="operator-docs-update-$(date +%s)"
